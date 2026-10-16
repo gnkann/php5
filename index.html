@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Бібліотека F1 — AJAX</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background: #f4f4f4; }
+        label { display: block; margin-top: 8px; }
+        input[type=text], input[type=number], input[type=search] { padding: 6px; width: 300px; }
+        .placeholder td { text-align: center; color: #777; }
+        .error { color: #c0392b; }
+        .success { color: #27ae60; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>🏎️ Бібліотека книг про Формулу-1</h1>
+
+    <h2>Пошук за назвою</h2>
+    <input type="search" id="search" placeholder="Почніть вводити назву...">
+
+    <h2>Список книг</h2>
+    <table id="results">
+        <thead>
+            <tr>
+                <th>ID</th><th>Назва</th><th>Автор</th><th>Рік</th><th>ISBN</th><th>Статус</th>
+            </tr>
+        </thead>
+        <tbody id="books-body">
+            <tr class="placeholder"><td colspan="6">Завантаження...</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Додати книгу</h2>
+    <form id="add-form">
+        <label>Назва <input type="text" name="title" required></label>
+        <label>Автор <input type="text" name="author" required></label>
+        <label>Рік <input type="number" name="year" id="year" min="1450" required></label>
+        <label>ISBN (10 або 13 цифр) <input type="text" name="isbn" pattern="\d{10}(\d{3})?" required></label>
+        <label><input type="checkbox" name="is_available" checked> Доступна</label>
+        <button type="submit">Додати</button>
+    </form>
+    <p id="form-message"></p>
+
+    <script src="script.js"></script>
+</body>
+</html>
